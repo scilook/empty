@@ -1,0 +1,10 @@
+Package: vuln-patch-agent
+Version: 0.1.0
+Section: admin
+Priority: optional
+Architecture: all
+Maintainer: scilook <noreply@example.com>
+Depends: python3 (>= 3.10), python3-apt, sudo, dpkg, apt
+Description: Ubuntu vulnerability discovery and patch agent (MVP)
+ CLI tool for Ubuntu 22.04 vulnerability sync, package matching,
+ selective patching, and JSON audit/report output.

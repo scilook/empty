@@ -1,0 +1,20 @@
+{
+  "timestamp": "2026-04-28T11:32:20Z",
+  "total_installed_packages": 1,
+  "vulnerable_findings": 1,
+  "vulnerable_packages": 1,
+  "packages": [
+    {
+      "package": "bash",
+      "installed_version": "5.2.15-2+b2",
+      "vulnerabilities": [
+        {
+          "cve_id": "CVE-TEST-0001",
+          "cvss_score": 7.5,
+          "source_product": "bash",
+          "reasoning": "test"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+#!/bin/sh
+set -e
+
+AGENT_USER="patch-agent"
+AGENT_GROUP="patch-agent"
+STATE_DIR="/var/lib/vuln-patch-agent"
+LOG_DIR="/var/log/vuln-patch-agent"
+SUDOERS_FILE="/etc/sudoers.d/patch-agent"
+
+if ! getent group "$AGENT_GROUP" >/dev/null 2>&1; then
+    addgroup --system "$AGENT_GROUP"
+fi
+
+if ! id -u "$AGENT_USER" >/dev/null 2>&1; then
+    adduser \
+        --system \
+        --ingroup "$AGENT_GROUP" \
+        --home "$STATE_DIR" \
+        --no-create-home \
+        --shell /usr/sbin/nologin \
+        "$AGENT_USER"
+fi
+
+mkdir -p "$STATE_DIR" "$LOG_DIR"
+chown -R "$AGENT_USER:$AGENT_GROUP" "$STATE_DIR" "$LOG_DIR"
+chmod 0750 "$STATE_DIR" "$LOG_DIR"
+
+cat > "$SUDOERS_FILE" <<'EOF'
+patch-agent ALL=(root) NOPASSWD: /usr/bin/apt-get update
+patch-agent ALL=(root) NOPASSWD: /usr/bin/apt-get install --only-upgrade *
+EOF
+chmod 0440 "$SUDOERS_FILE"
+
+if command -v visudo >/dev/null 2>&1; then
+    visudo -cf "$SUDOERS_FILE" >/dev/null
+fi
+
+if [ -x /usr/bin/vuln-patch-agent ]; then
+    # Initialize DB as the service account so runtime artifacts remain writable
+    # for patch-agent (postinst runs as root).
+    if command -v runuser >/dev/null 2>&1; then
+        runuser -u "$AGENT_USER" -- /usr/bin/vuln-patch-agent init-db >/dev/null 2>&1 || true
+    elif command -v su >/dev/null 2>&1; then
+        su -s /bin/sh "$AGENT_USER" -c "/usr/bin/vuln-patch-agent init-db" >/dev/null 2>&1 || true
+    else
+        /usr/bin/vuln-patch-agent init-db >/dev/null 2>&1 || true
+    fi
+
+    # If earlier installs or root-invocations created root-owned artifacts,
+    # ensure patch-agent can still operate.
+    chown -R "$AGENT_USER:$AGENT_GROUP" "$STATE_DIR" "$LOG_DIR" 2>/dev/null || true
+fi
+
+exit 0

@@ -1,0 +1,8 @@
+{
+  "db_path": "/workspaces/empty/.tmp/vuln-patch-agent-test/state/vuln_patch.db",
+  "audit_log": "/workspaces/empty/.tmp/vuln-patch-agent-test/state/audit.log",
+  "scan_output": "/workspaces/empty/.tmp/vuln-patch-agent-test/state/latest_scan.json",
+  "report_output": "/workspaces/empty/.tmp/vuln-patch-agent-test/state/latest_report.json",
+  "nvd_endpoint": "http://127.0.0.1:8000/rest/json/cves/2.0",
+  "results_per_page": 2000
+}

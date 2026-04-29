@@ -1,0 +1,13 @@
+{"timestamp": "2026-04-28T11:31:40Z", "level": "INFO", "event": "db_initialized", "details": {"status": "ok", "db_path": "/workspaces/empty/.tmp/vuln-patch-agent-test/state/vuln_patch.db"}}
+{"timestamp": "2026-04-28T11:32:07Z", "level": "INFO", "event": "nvd_sync_completed", "details": {"started_from": "2026-04-21T11:32:07Z", "ended_at": "2026-04-28T11:32:07Z", "pages": 0, "vulnerabilities_upserted": 0, "affected_rows_upserted": 0}}
+{"timestamp": "2026-04-28T11:32:11Z", "level": "INFO", "event": "oval_import_completed", "details": {"oval_file": "/workspaces/empty/.tmp/vuln-patch-agent-test/sample.oval.xml", "aliases_upserted": 1}}
+{"timestamp": "2026-04-28T11:32:17Z", "level": "INFO", "event": "scan_completed", "details": {"total_installed_packages": 581, "vulnerable_findings": 0, "vulnerable_packages": 0}}
+{"timestamp": "2026-04-28T11:32:31Z", "level": "INFO", "event": "scan_completed", "details": {"total_installed_packages": 581, "vulnerable_findings": 0, "vulnerable_packages": 0}}
+{"timestamp": "2026-04-28T11:32:31Z", "level": "INFO", "event": "patch_completed", "details": {"target_count": 1, "status": "success", "mitigation_success_rate": 100.0}}
+{"timestamp": "2026-04-28T11:32:40Z", "level": "INFO", "event": "report_generated", "details": {"report_output": "/workspaces/empty/.tmp/vuln-patch-agent-test/state/latest_report.json"}}
+{"timestamp": "2026-04-28T11:32:46Z", "level": "INFO", "event": "nvd_sync_completed", "details": {"started_from": "2026-04-28T11:32:07Z", "ended_at": "2026-04-28T11:32:46Z", "pages": 0, "vulnerabilities_upserted": 0, "affected_rows_upserted": 0}}
+{"timestamp": "2026-04-28T11:32:46Z", "level": "INFO", "event": "oval_import_completed", "details": {"oval_file": "/workspaces/empty/.tmp/vuln-patch-agent-test/sample.oval.xml", "aliases_upserted": 1}}
+{"timestamp": "2026-04-28T11:32:46Z", "level": "INFO", "event": "scan_completed", "details": {"total_installed_packages": 581, "vulnerable_findings": 0, "vulnerable_packages": 0}}
+{"timestamp": "2026-04-28T11:32:46Z", "level": "INFO", "event": "scan_completed", "details": {"total_installed_packages": 581, "vulnerable_findings": 0, "vulnerable_packages": 0}}
+{"timestamp": "2026-04-28T11:32:46Z", "level": "INFO", "event": "scan_completed", "details": {"total_installed_packages": 581, "vulnerable_findings": 0, "vulnerable_packages": 0}}
+{"timestamp": "2026-04-28T11:32:46Z", "level": "INFO", "event": "patch_completed", "details": {"target_count": 0, "status": "success", "mitigation_success_rate": 100.0}}

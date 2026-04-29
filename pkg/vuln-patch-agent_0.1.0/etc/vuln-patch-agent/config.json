@@ -1,0 +1,8 @@
+{
+  "db_path": "/var/lib/vuln-patch-agent/vuln_patch.db",
+  "audit_log": "/var/log/vuln-patch-agent/audit.log",
+  "scan_output": "/var/log/vuln-patch-agent/latest_scan.json",
+  "report_output": "/var/log/vuln-patch-agent/latest_report.json",
+  "nvd_endpoint": "https://services.nvd.nist.gov/rest/json/cves/2.0",
+  "results_per_page": 2000
+}

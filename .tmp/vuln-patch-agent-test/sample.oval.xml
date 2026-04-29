@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oval_definitions xmlns="http://oval.mitre.org/XMLSchema/oval-definitions-5">
+  <definitions/>
+  <tests/>
+  <objects/>
+  <states/>
+  <variables/>
+  <criteria>
+    <criterion comment="bash package is installed"/>
+  </criteria>
+</oval_definitions>
